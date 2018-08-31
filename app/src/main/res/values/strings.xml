@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">QuizActivity</string>
+    <string name="pergunta1">a capital do brasil é brazuca</string>
+    <string name="true_button">true</string>
+    <string name="false_button">false</string>
+    <string name="next_button">next</string>
+    <string name="correct_toast">Correto!</string>
+    <string name="incorrect_toast">Incorreto!</string>
+    <string name="pergunta2">palmeiras tem mundial</string>
+
+</resources>
