@@ -9,9 +9,9 @@ import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity {
 
-    private Button mTrueButton;
-    private Button mFalseButton;
-    private Button mNextButton;
+    private ImageButton mTrueButton;
+    private ImageButton mFalseButton;
+    private ImageButton mNextButton;
     private TextView mTextView;
     private int mCurrentIndex;
 
@@ -42,9 +42,9 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        mTrueButton = (Button) findViewById(R.id.true_button);
-        mFalseButton = (Button) findViewById(R.id.false_button);
-        mNextButton = (Button) findViewById(R.id.next_button);
+        mTrueButton = (ImageButton) findViewById(R.id.true_button);
+        mFalseButton = (ImageButton) findViewById(R.id.false_button);
+        mNextButton = (ImageButton) findViewById(R.id.next_button);
         mTextView = (TextView) findViewById(R.id.textoid);
 
 
