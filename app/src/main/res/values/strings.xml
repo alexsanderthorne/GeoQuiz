@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">QuizActivity</string>
+    <string name="pergunta1">a capital do brasil é brazuca</string>
+    <string name="pergunta2">corinthians clube de maginal</string>
+    <string name="pergunta3">palmeiras tem mundial</string>
+    <string name="pergunta4">a cor do cabelo loiro e verde</string>
+    <string name="pergunta5">itaipava e a cerva do verao</string>
     <string name="true_button">true</string>
     <string name="false_button">false</string>
     <string name="next_button">avancar</string>
     <string name="prev_button">voltar</string>
     <string name="correct_toast">Correto!</string>
     <string name="incorrect_toast">Incorreto!</string>
-    <string name="pergunta1">a capital do brasil é brazuca</string>
-    <string name="pergunta2">corinthians clube de maginal</string>
-    <string name="pergunta3">palmeiras tem mundial</string>
-    <string name="pergunta4">a cor do cabelo loiro e verde</string>
-    <string name="pergunta5">itaipava e a cerva do verao</string>
 
 </resources>
