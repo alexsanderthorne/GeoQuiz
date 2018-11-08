@@ -1,5 +1,7 @@
 package com.example.quizactivity.quizactivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,19 +13,19 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.Collections;
 
+import static android.app.Activity.*;
+
 
 public class QuizActivity extends AppCompatActivity {
 
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
+    private static final int REQUEST_CODE_CHEAT = 0;
 
-    private Button mTrueButton;
-    private Button mFalseButton;
-    private Button mNextButton;
-    private Button mPrevButton;
+    private Button mTrueButton,mFalseButton,mNextButton,mPrevButton,mCheatButton;
     private TextView mTextView;
     private int mCurrentIndex;
-
+    private boolean usuarioTrapaceou;
     private TextView mQuestionTextView;
 
     Question[] mQuestions = new Question[]{
@@ -89,8 +91,9 @@ public class QuizActivity extends AppCompatActivity {
         mTrueButton = (Button) findViewById(R.id.true_button);
         mFalseButton = (Button) findViewById(R.id.false_button);
         mPrevButton = (Button) findViewById(R.id.prev_button);
-        mNextButton = (Button) findViewById(R.id.next_button);
         mTextView = (TextView) findViewById(R.id.textoid);
+        mNextButton = (Button) findViewById(R.id.next_button);
+        mCheatButton = (Button)findViewById(R.id.cheat_button);
 
         // int question = mQuestions[mCurrentIndex].getId_da_respota();
 
@@ -127,6 +130,27 @@ public class QuizActivity extends AppCompatActivity {
 
         });
 
+        mCheatButton.setOnClickListener(e ->
+                startCheatActivity());
+
+        mCheatButton.setOnClickListener(e -> {
+            Intent intent = new Intent(QuizActivity.this,
+                    CheatActivity.class);
+            startActivity(intent);
+        });
+
+        mCheatButton.setOnClickListener(e -> {
+            Intent intent = new Intent(QuizActivity.this,
+                    CheatActivity.class);
+            intent.putExtra(CheatActivity.getExtraAnswerIsTrue(),
+                    mQuestions[mCurrentIndex].isResposta_correta());
+            startActivity(intent);
+        });
+
+        // private void startCheatActivity(){
+
+        //}
+
         //mPrevButton.setOnClickListener(new View.OnClickListener() {
         //  @Override
         //public void onClick(View v) {
@@ -135,6 +159,45 @@ public class QuizActivity extends AppCompatActivity {
         //}
         //});
 
+    }
+
+    public void startActivity(Intent intent){
+
+    }
+
+    private void startCheatActivity() {
+    }
+
+    public void startActivityForResult(Intent intent,
+                                       int requestCode){
+
+    }
+
+    //protected void onActivityResult(int requestCode,
+       //                             int resultCode, Intent data){
+
+    //}
+
+    @Override
+    protected void onActivityResult(int requestCode,
+                                    int resultCode, Intent data) {
+        if (resultCode != RESULT_OK) {
+            return;
+        }
+        if (requestCode == REQUEST_CODE_CHEAT) {
+            if (data == null) {
+                return;
+            }
+            usuarioTrapaceou =
+                    CheatActivity.wasAnswerShown(data);
+        }
+    }
+
+    private void checkAnswer2(boolean respostaDoUsuario){
+        boolean gabarito = true;// ???
+        int messageResId = usuarioTrapaceou ? R.string.judgment_toast :
+                respostaDoUsuario == gabarito ?
+                        R.string.correct_toast : R.string.incorrect_toast;
     }
 
     @Override
